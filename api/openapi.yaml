@@ -1,0 +1,139 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: max.yu@memas.ai
+  description: This is the Data Plane APIs for MeMaS (Memory Management Service).
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: MeMaS DP APIs
+  version: 0.1.0
+externalDocs:
+  description: Find out more about MeMaS
+  url: http://memas.ai
+servers:
+- url: /
+tags:
+- description: Data Plane APIs for Chatbots
+  name: dp
+paths:
+  /dp/remember:
+    post:
+      description: Memorize information
+      operationId: remember
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CitedDocument'
+        description: Remember the following information
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remember_200_response'
+          description: Successful Operation
+      summary: Memorize information
+      tags:
+      - dp
+      x-content-type: application/json
+      x-accepts: application/json
+  /dp/recollect:
+    post:
+      description: ""
+      operationId: recollect
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/recollect_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CitedDocument'
+                type: array
+          description: successful operation
+      summary: Recollects
+      tags:
+      - dp
+      x-content-type: application/json
+      x-accepts: application/json
+components:
+  responses:
+    OperationSuccess:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/remember_200_response'
+      description: Successful Operation
+  schemas:
+    Citation:
+      example:
+        document_name: MeMaS Readme
+        description: A Memory Management Service
+        source_uri: https://github.com/memas-ai/MeMaS
+        source_name: github
+      properties:
+        source_uri:
+          example: https://github.com/memas-ai/MeMaS
+          type: string
+        source_name:
+          example: github
+          type: string
+        document_name:
+          example: MeMaS Readme
+          type: string
+        description:
+          example: A Memory Management Service
+          type: string
+      type: object
+    CitedDocument:
+      example:
+        citation:
+          document_name: MeMaS Readme
+          description: A Memory Management Service
+          source_uri: https://github.com/memas-ai/MeMaS
+          source_name: github
+        document: "\"A world has two moons and three suns. And some people love dreaming\
+          \ \nduring daytime.\""
+      properties:
+        document:
+          example: "\"A world has two moons and three suns. And some people love dreaming\
+            \ \nduring daytime.\""
+          type: string
+        citation:
+          $ref: '#/components/schemas/Citation'
+      type: object
+    CorpusPathname:
+      description: "\"Full name of a corpus, specifying which namespace the corpus\
+        \ is under. \nThe name takes on the format of \\\"<namespace_pathname>:<corpus_name>\\\
+        \"\""
+      example: memas:wikipedia
+      type: string
+    remember_200_response:
+      example:
+        success: true
+      properties:
+        success:
+          example: true
+          type: boolean
+      type: object
+    recollect_request:
+      properties:
+        clue:
+          example: What's the weather?
+          type: string
+        corpus_pathname:
+          description: "\"Full name of a corpus, specifying which namespace the corpus\
+            \ is under. \nThe name takes on the format of \\\"<namespace_pathname>:<corpus_name>\\\
+            \"\""
+          example: memas:wikipedia
+          type: string
+      type: object
+
