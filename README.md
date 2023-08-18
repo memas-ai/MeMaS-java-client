@@ -1,8 +1,8 @@
-# openapi-java-client
+# memas-client
 
 MeMaS DP APIs
 - API version: 0.1.0
-  - Build date: 2023-08-16T01:19:34.268752771-07:00[America/Los_Angeles]
+  - Build date: 2023-08-18T00:43:28.884684333-07:00[America/Los_Angeles]
 
 This is the Data Plane APIs for MeMaS (Memory Management Service).
 
@@ -38,8 +38,8 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>org.openapitools</groupId>
-  <artifactId>openapi-java-client</artifactId>
+  <groupId>ai.memas</groupId>
+  <artifactId>memas-client</artifactId>
   <version>0.1.0</version>
   <scope>compile</scope>
 </dependency>
@@ -51,12 +51,12 @@ Add this dependency to your project's build file:
 
 ```groovy
   repositories {
-    mavenCentral()     // Needed if the 'openapi-java-client' jar has been published to maven central.
-    mavenLocal()       // Needed if the 'openapi-java-client' jar has been published to the local maven repo.
+    mavenCentral()     // Needed if the 'memas-client' jar has been published to maven central.
+    mavenLocal()       // Needed if the 'memas-client' jar has been published to the local maven repo.
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:0.1.0"
+     implementation "ai.memas:memas-client:0.1.0"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-0.1.0.jar`
+* `target/memas-client-0.1.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -80,11 +80,11 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```java
 
 // Import classes:
-import ai.memas.memas_client.invoker.ApiClient;
-import ai.memas.memas_client.invoker.ApiException;
-import ai.memas.memas_client.invoker.Configuration;
-import ai.memas.memas_client.invoker.models.*;
-import ai.memas.memas_client.api.DpApi;
+import ai.memas.memasclient.invoker.ApiClient;
+import ai.memas.memasclient.invoker.ApiException;
+import ai.memas.memasclient.invoker.Configuration;
+import ai.memas.memasclient.invoker.models.*;
+import ai.memas.memasclient.api.DpApi;
 
 public class Example {
   public static void main(String[] args) {

@@ -1,22 +1,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.openapitools</groupId>
-    <artifactId>openapi-java-client</artifactId>
+    <groupId>ai.memas</groupId>
+    <artifactId>memas-client</artifactId>
     <packaging>jar</packaging>
-    <name>openapi-java-client</name>
+    <name>memas-client</name>
     <version>0.1.0</version>
-    <url>https://github.com/openapitools/openapi-generator</url>
+    <url>https://github.com/memas-ai/MeMaS-java-client</url>
     <description>OpenAPI Java</description>
     <scm>
-        <connection>scm:git:git@github.com:openapitools/openapi-generator.git</connection>
-        <developerConnection>scm:git:git@github.com:openapitools/openapi-generator.git</developerConnection>
-        <url>https://github.com/openapitools/openapi-generator</url>
+        <connection>scm:git:git@github.com:memas-ai/MeMaS-java-client.git</connection>
+        <developerConnection>scm:git:git@github.com:memas-ai/MeMaS-java-client.git</developerConnection>
+        <url>https://github.com/memas-ai/MeMaS-java-client</url>
     </scm>
 
     <licenses>
         <license>
-            <name>Unlicense</name>
+            <name>Apache License 2.0</name>
             <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
             <distribution>repo</distribution>
         </license>
@@ -24,10 +24,10 @@
 
     <developers>
         <developer>
-            <name>OpenAPI-Generator Contributors</name>
-            <email>team@openapitools.org</email>
-            <organization>OpenAPITools.org</organization>
-            <organizationUrl>http://openapitools.org</organizationUrl>
+            <name>MeMaS Contributors</name>
+            <email>max.yu@memas.ai</email>
+            <organization>memas.ai</organization>
+            <organizationUrl>http://memas.ai</organizationUrl>
         </developer>
     </developers>
 

@@ -19,11 +19,11 @@ Recollects
 ### Example
 ```java
 // Import classes:
-import ai.memas.memas_client.invoker.ApiClient;
-import ai.memas.memas_client.invoker.ApiException;
-import ai.memas.memas_client.invoker.Configuration;
-import ai.memas.memas_client.invoker.models.*;
-import ai.memas.memas_client.api.DpApi;
+import ai.memas.memasclient.invoker.ApiClient;
+import ai.memas.memasclient.invoker.ApiException;
+import ai.memas.memasclient.invoker.Configuration;
+import ai.memas.memasclient.invoker.models.*;
+import ai.memas.memasclient.api.DpApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -81,11 +81,11 @@ Memorize information
 ### Example
 ```java
 // Import classes:
-import ai.memas.memas_client.invoker.ApiClient;
-import ai.memas.memas_client.invoker.ApiException;
-import ai.memas.memas_client.invoker.Configuration;
-import ai.memas.memas_client.invoker.models.*;
-import ai.memas.memas_client.api.DpApi;
+import ai.memas.memasclient.invoker.ApiClient;
+import ai.memas.memasclient.invoker.ApiException;
+import ai.memas.memasclient.invoker.Configuration;
+import ai.memas.memasclient.invoker.models.*;
+import ai.memas.memasclient.api.DpApi;
 
 public class Example {
   public static void main(String[] args) {
