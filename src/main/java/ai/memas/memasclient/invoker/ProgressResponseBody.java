@@ -1,6 +1,6 @@
 /*
  * MeMaS DP APIs
- * This is the Data Plane APIs for MeMaS (Memory Management Service).
+ * This is the Data Plane client for MeMaS (Memory Management Service).  See https://github.com/memas-ai/MeMaS for more details.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: max.yu@memas.ai

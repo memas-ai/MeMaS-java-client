@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**document** | **String** |  |  [optional] |
-|**citation** | [**Citation**](Citation.md) |  |  [optional] |
+|**document** | **String** |  |  |
+|**citation** | [**Citation**](Citation.md) |  |  |
 
 
 

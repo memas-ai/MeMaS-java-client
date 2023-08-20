@@ -10,6 +10,8 @@ docs/CitedDocument.md
 docs/DpApi.md
 docs/RecollectRequest.md
 docs/Remember200Response.md
+docs/RememberRequest.md
+docs/RememberRequestAllOf.md
 git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
@@ -42,8 +44,5 @@ src/main/java/ai/memas/memasclient/model/Citation.java
 src/main/java/ai/memas/memasclient/model/CitedDocument.java
 src/main/java/ai/memas/memasclient/model/RecollectRequest.java
 src/main/java/ai/memas/memasclient/model/Remember200Response.java
-src/test/java/ai/memas/memasclient/api/DpApiTest.java
-src/test/java/ai/memas/memasclient/model/CitationTest.java
-src/test/java/ai/memas/memasclient/model/CitedDocumentTest.java
-src/test/java/ai/memas/memasclient/model/RecollectRequestTest.java
-src/test/java/ai/memas/memasclient/model/Remember200ResponseTest.java
+src/main/java/ai/memas/memasclient/model/RememberRequest.java
+src/main/java/ai/memas/memasclient/model/RememberRequestAllOf.java

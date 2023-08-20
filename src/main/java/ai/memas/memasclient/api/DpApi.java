@@ -1,6 +1,6 @@
 /*
  * MeMaS DP APIs
- * This is the Data Plane APIs for MeMaS (Memory Management Service).
+ * This is the Data Plane client for MeMaS (Memory Management Service).  See https://github.com/memas-ai/MeMaS for more details.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: max.yu@memas.ai
@@ -30,6 +30,7 @@ import java.io.IOException;
 import ai.memas.memasclient.model.CitedDocument;
 import ai.memas.memasclient.model.RecollectRequest;
 import ai.memas.memasclient.model.Remember200Response;
+import ai.memas.memasclient.model.RememberRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -200,7 +201,7 @@ public class DpApi {
     }
     /**
      * Build call for remember
-     * @param citedDocument Remember the following information (required)
+     * @param rememberRequest Request object for remembering a document (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -210,7 +211,7 @@ public class DpApi {
         <tr><td> 200 </td><td> Successful Operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call rememberCall(CitedDocument citedDocument, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call rememberCall(RememberRequest rememberRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -224,7 +225,7 @@ public class DpApi {
             basePath = null;
         }
 
-        Object localVarPostBody = citedDocument;
+        Object localVarPostBody = rememberRequest;
 
         // create path and map variables
         String localVarPath = "/dp/remember";
@@ -256,20 +257,20 @@ public class DpApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call rememberValidateBeforeCall(CitedDocument citedDocument, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'citedDocument' is set
-        if (citedDocument == null) {
-            throw new ApiException("Missing the required parameter 'citedDocument' when calling remember(Async)");
+    private okhttp3.Call rememberValidateBeforeCall(RememberRequest rememberRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'rememberRequest' is set
+        if (rememberRequest == null) {
+            throw new ApiException("Missing the required parameter 'rememberRequest' when calling remember(Async)");
         }
 
-        return rememberCall(citedDocument, _callback);
+        return rememberCall(rememberRequest, _callback);
 
     }
 
     /**
      * Memorize information
      * Memorize information
-     * @param citedDocument Remember the following information (required)
+     * @param rememberRequest Request object for remembering a document (required)
      * @return Remember200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -278,15 +279,15 @@ public class DpApi {
         <tr><td> 200 </td><td> Successful Operation </td><td>  -  </td></tr>
      </table>
      */
-    public Remember200Response remember(CitedDocument citedDocument) throws ApiException {
-        ApiResponse<Remember200Response> localVarResp = rememberWithHttpInfo(citedDocument);
+    public Remember200Response remember(RememberRequest rememberRequest) throws ApiException {
+        ApiResponse<Remember200Response> localVarResp = rememberWithHttpInfo(rememberRequest);
         return localVarResp.getData();
     }
 
     /**
      * Memorize information
      * Memorize information
-     * @param citedDocument Remember the following information (required)
+     * @param rememberRequest Request object for remembering a document (required)
      * @return ApiResponse&lt;Remember200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -295,8 +296,8 @@ public class DpApi {
         <tr><td> 200 </td><td> Successful Operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Remember200Response> rememberWithHttpInfo(CitedDocument citedDocument) throws ApiException {
-        okhttp3.Call localVarCall = rememberValidateBeforeCall(citedDocument, null);
+    public ApiResponse<Remember200Response> rememberWithHttpInfo(RememberRequest rememberRequest) throws ApiException {
+        okhttp3.Call localVarCall = rememberValidateBeforeCall(rememberRequest, null);
         Type localVarReturnType = new TypeToken<Remember200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -304,7 +305,7 @@ public class DpApi {
     /**
      * Memorize information (asynchronously)
      * Memorize information
-     * @param citedDocument Remember the following information (required)
+     * @param rememberRequest Request object for remembering a document (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -314,9 +315,9 @@ public class DpApi {
         <tr><td> 200 </td><td> Successful Operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call rememberAsync(CitedDocument citedDocument, final ApiCallback<Remember200Response> _callback) throws ApiException {
+    public okhttp3.Call rememberAsync(RememberRequest rememberRequest, final ApiCallback<Remember200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = rememberValidateBeforeCall(citedDocument, _callback);
+        okhttp3.Call localVarCall = rememberValidateBeforeCall(rememberRequest, _callback);
         Type localVarReturnType = new TypeToken<Remember200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

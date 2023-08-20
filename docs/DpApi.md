@@ -72,7 +72,7 @@ No authorization required
 
 <a id="remember"></a>
 # **remember**
-> Remember200Response remember(citedDocument)
+> Remember200Response remember(rememberRequest)
 
 Memorize information
 
@@ -93,9 +93,9 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     DpApi apiInstance = new DpApi(defaultClient);
-    CitedDocument citedDocument = new CitedDocument(); // CitedDocument | Remember the following information
+    RememberRequest rememberRequest = new RememberRequest(); // RememberRequest | Request object for remembering a document
     try {
-      Remember200Response result = apiInstance.remember(citedDocument);
+      Remember200Response result = apiInstance.remember(rememberRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DpApi#remember");
@@ -112,7 +112,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **citedDocument** | [**CitedDocument**](CitedDocument.md)| Remember the following information | |
+| **rememberRequest** | [**RememberRequest**](RememberRequest.md)| Request object for remembering a document | |
 
 ### Return type
 

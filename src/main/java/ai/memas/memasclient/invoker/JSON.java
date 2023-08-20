@@ -1,6 +1,6 @@
 /*
  * MeMaS DP APIs
- * This is the Data Plane APIs for MeMaS (Memory Management Service).
+ * This is the Data Plane client for MeMaS (Memory Management Service).  See https://github.com/memas-ai/MeMaS for more details.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: max.yu@memas.ai
@@ -97,6 +97,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new ai.memas.memasclient.model.CitedDocument.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.memas.memasclient.model.RecollectRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.memas.memasclient.model.Remember200Response.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ai.memas.memasclient.model.RememberRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ai.memas.memasclient.model.RememberRequestAllOf.CustomTypeAdapterFactory());
         gson = gsonBuilder.create();
     }
 

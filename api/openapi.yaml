@@ -2,7 +2,8 @@ openapi: 3.0.3
 info:
   contact:
     email: max.yu@memas.ai
-  description: This is the Data Plane APIs for MeMaS (Memory Management Service).
+  description: "This is the Data Plane client for MeMaS (Memory Management Service).\
+    \ \nSee https://github.com/memas-ai/MeMaS for more details."
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
@@ -22,12 +23,7 @@ paths:
       description: Memorize information
       operationId: remember
       requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CitedDocument'
-        description: Remember the following information
-        required: true
+        $ref: '#/components/requestBodies/RememberRequest'
       responses:
         "200":
           content:
@@ -65,6 +61,14 @@ paths:
       x-content-type: application/json
       x-accepts: application/json
 components:
+  requestBodies:
+    RememberRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/remember_request'
+      description: Request object for remembering a document
+      required: true
   responses:
     OperationSuccess:
       content:
@@ -100,22 +104,40 @@ components:
           description: A Memory Management Service
           source_uri: https://github.com/memas-ai/MeMaS
           source_name: github
-        document: "\"A world has two moons and three suns. And some people love dreaming\
-          \ \nduring daytime.\""
+        document: "A world has two moons and three suns. And some people love dreaming\
+          \ \nduring daytime."
       properties:
         document:
-          example: "\"A world has two moons and three suns. And some people love dreaming\
-            \ \nduring daytime.\""
+          example: "A world has two moons and three suns. And some people love dreaming\
+            \ \nduring daytime."
           type: string
         citation:
           $ref: '#/components/schemas/Citation'
+      required:
+      - citation
+      - document
       type: object
     CorpusPathname:
-      description: "\"Full name of a corpus, specifying which namespace the corpus\
-        \ is under. \nThe name takes on the format of \\\"<namespace_pathname>:<corpus_name>\\\
-        \"\""
+      description: "Full name of a corpus, specifying which namespace the corpus is\
+        \ under. \nThe name takes on the format of \\\"<namespace_pathname>:<corpus_name>\\\
+        \""
       example: memas:wikipedia
       type: string
+    remember_request_allOf:
+      properties:
+        corpus_pathname:
+          description: "Full name of a corpus, specifying which namespace the corpus\
+            \ is under. \nThe name takes on the format of \\\"<namespace_pathname>:<corpus_name>\\\
+            \""
+          example: memas:wikipedia
+          type: string
+    remember_request:
+      allOf:
+      - $ref: '#/components/schemas/CitedDocument'
+      - type: object
+      - required:
+        - corpus_pathname
+      - $ref: '#/components/schemas/remember_request_allOf'
     remember_200_response:
       example:
         success: true
@@ -130,10 +152,13 @@ components:
           example: What's the weather?
           type: string
         corpus_pathname:
-          description: "\"Full name of a corpus, specifying which namespace the corpus\
+          description: "Full name of a corpus, specifying which namespace the corpus\
             \ is under. \nThe name takes on the format of \\\"<namespace_pathname>:<corpus_name>\\\
-            \"\""
+            \""
           example: memas:wikipedia
           type: string
+      required:
+      - clue
+      - corpus_pathname
       type: object
 

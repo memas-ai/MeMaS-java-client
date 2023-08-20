@@ -1,6 +1,6 @@
 /*
  * MeMaS DP APIs
- * This is the Data Plane APIs for MeMaS (Memory Management Service).
+ * This is the Data Plane client for MeMaS (Memory Management Service).  See https://github.com/memas-ai/MeMaS for more details.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: max.yu@memas.ai
@@ -51,7 +51,7 @@ import ai.memas.memasclient.invoker.JSON;
 /**
  * CitedDocument
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-18T00:43:28.884684333-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-20T02:18:29.780519497-07:00[America/Los_Angeles]")
 public class CitedDocument {
   public static final String SERIALIZED_NAME_DOCUMENT = "document";
   @SerializedName(SERIALIZED_NAME_DOCUMENT)
@@ -74,7 +74,7 @@ public class CitedDocument {
    * Get document
    * @return document
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getDocument() {
     return document;
   }
@@ -95,7 +95,7 @@ public class CitedDocument {
    * Get citation
    * @return citation
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Citation getCitation() {
     return citation;
   }
@@ -158,6 +158,8 @@ public class CitedDocument {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("document");
+    openapiRequiredFields.add("citation");
   }
 
  /**
@@ -180,13 +182,18 @@ public class CitedDocument {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CitedDocument` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if ((jsonObj.get("document") != null && !jsonObj.get("document").isJsonNull()) && !jsonObj.get("document").isJsonPrimitive()) {
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : CitedDocument.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (!jsonObj.get("document").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `document` to be a primitive type in the JSON string but got `%s`", jsonObj.get("document").toString()));
       }
-      // validate the optional field `citation`
-      if (jsonObj.get("citation") != null && !jsonObj.get("citation").isJsonNull()) {
-        Citation.validateJsonObject(jsonObj.getAsJsonObject("citation"));
-      }
+      // validate the required field `citation`
+      Citation.validateJsonObject(jsonObj.getAsJsonObject("citation"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
