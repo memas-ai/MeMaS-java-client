@@ -1,6 +1,6 @@
 /*
  * MeMaS DP APIs
- * This is the Data Plane APIs for MeMaS (Memory Management Service).
+ * This is the Data Plane client for MeMaS (Memory Management Service).  See https://github.com/memas-ai/MeMaS for more details.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: max.yu@memas.ai
@@ -17,6 +17,7 @@ import ai.memas.memasclient.invoker.ApiException;
 import ai.memas.memasclient.model.CitedDocument;
 import ai.memas.memasclient.model.RecollectRequest;
 import ai.memas.memasclient.model.Remember200Response;
+import ai.memas.memasclient.model.RememberRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -56,8 +57,8 @@ public class DpApiTest {
      */
     @Test
     public void rememberTest() throws ApiException {
-        CitedDocument citedDocument = null;
-        Remember200Response response = api.remember(citedDocument);
+        RememberRequest rememberRequest = null;
+        Remember200Response response = api.remember(rememberRequest);
         // TODO: test validations
     }
 
