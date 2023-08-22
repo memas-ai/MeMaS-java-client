@@ -95,10 +95,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapter(byte[].class, byteArrayAdapter);
         gsonBuilder.registerTypeAdapterFactory(new ai.memas.memasclient.model.Citation.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.memas.memasclient.model.CitedDocument.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new ai.memas.memasclient.model.RecollectRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new ai.memas.memasclient.model.Remember200Response.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new ai.memas.memasclient.model.RememberRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new ai.memas.memasclient.model.RememberRequestAllOf.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ai.memas.memasclient.model.Memorize200Response.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ai.memas.memasclient.model.MemorizeRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ai.memas.memasclient.model.MemorizeRequestAllOf.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ai.memas.memasclient.model.RecallRequest.CustomTypeAdapterFactory());
         gson = gsonBuilder.create();
     }
 

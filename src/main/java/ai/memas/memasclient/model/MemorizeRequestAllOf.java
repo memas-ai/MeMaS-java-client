@@ -48,43 +48,18 @@ import java.util.Set;
 import ai.memas.memasclient.invoker.JSON;
 
 /**
- * RecollectRequest
+ * MemorizeRequestAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-20T02:18:29.780519497-07:00[America/Los_Angeles]")
-public class RecollectRequest {
-  public static final String SERIALIZED_NAME_CLUE = "clue";
-  @SerializedName(SERIALIZED_NAME_CLUE)
-  private String clue;
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-21T23:03:51.747088712-07:00[America/Los_Angeles]")
+public class MemorizeRequestAllOf {
   public static final String SERIALIZED_NAME_CORPUS_PATHNAME = "corpus_pathname";
   @SerializedName(SERIALIZED_NAME_CORPUS_PATHNAME)
   private String corpusPathname;
 
-  public RecollectRequest() {
+  public MemorizeRequestAllOf() {
   }
 
-  public RecollectRequest clue(String clue) {
-    
-    this.clue = clue;
-    return this;
-  }
-
-   /**
-   * Get clue
-   * @return clue
-  **/
-  @javax.annotation.Nonnull
-  public String getClue() {
-    return clue;
-  }
-
-
-  public void setClue(String clue) {
-    this.clue = clue;
-  }
-
-
-  public RecollectRequest corpusPathname(String corpusPathname) {
+  public MemorizeRequestAllOf corpusPathname(String corpusPathname) {
     
     this.corpusPathname = corpusPathname;
     return this;
@@ -94,7 +69,7 @@ public class RecollectRequest {
    * Full name of a corpus, specifying which namespace the corpus is under.  The name takes on the format of \\\&quot;&lt;namespace_pathname&gt;:&lt;corpus_name&gt;\\\&quot;
    * @return corpusPathname
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getCorpusPathname() {
     return corpusPathname;
   }
@@ -114,21 +89,19 @@ public class RecollectRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RecollectRequest recollectRequest = (RecollectRequest) o;
-    return Objects.equals(this.clue, recollectRequest.clue) &&
-        Objects.equals(this.corpusPathname, recollectRequest.corpusPathname);
+    MemorizeRequestAllOf memorizeRequestAllOf = (MemorizeRequestAllOf) o;
+    return Objects.equals(this.corpusPathname, memorizeRequestAllOf.corpusPathname);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clue, corpusPathname);
+    return Objects.hash(corpusPathname);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RecollectRequest {\n");
-    sb.append("    clue: ").append(toIndentedString(clue)).append("\n");
+    sb.append("class MemorizeRequestAllOf {\n");
     sb.append("    corpusPathname: ").append(toIndentedString(corpusPathname)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -152,46 +125,33 @@ public class RecollectRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("clue");
     openapiFields.add("corpus_pathname");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("clue");
-    openapiRequiredFields.add("corpus_pathname");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to RecollectRequest
+  * @throws IOException if the JSON Object is invalid with respect to MemorizeRequestAllOf
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!RecollectRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RecollectRequest is not found in the empty JSON string", RecollectRequest.openapiRequiredFields.toString()));
+        if (!MemorizeRequestAllOf.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in MemorizeRequestAllOf is not found in the empty JSON string", MemorizeRequestAllOf.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!RecollectRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RecollectRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!MemorizeRequestAllOf.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MemorizeRequestAllOf` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RecollectRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (!jsonObj.get("clue").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `clue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("clue").toString()));
-      }
-      if (!jsonObj.get("corpus_pathname").isJsonPrimitive()) {
+      if ((jsonObj.get("corpus_pathname") != null && !jsonObj.get("corpus_pathname").isJsonNull()) && !jsonObj.get("corpus_pathname").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `corpus_pathname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("corpus_pathname").toString()));
       }
   }
@@ -200,22 +160,22 @@ public class RecollectRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RecollectRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RecollectRequest' and its subtypes
+       if (!MemorizeRequestAllOf.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MemorizeRequestAllOf' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RecollectRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RecollectRequest.class));
+       final TypeAdapter<MemorizeRequestAllOf> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MemorizeRequestAllOf.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RecollectRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<MemorizeRequestAllOf>() {
            @Override
-           public void write(JsonWriter out, RecollectRequest value) throws IOException {
+           public void write(JsonWriter out, MemorizeRequestAllOf value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public RecollectRequest read(JsonReader in) throws IOException {
+           public MemorizeRequestAllOf read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -226,18 +186,18 @@ public class RecollectRequest {
   }
 
  /**
-  * Create an instance of RecollectRequest given an JSON string
+  * Create an instance of MemorizeRequestAllOf given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of RecollectRequest
-  * @throws IOException if the JSON string is invalid with respect to RecollectRequest
+  * @return An instance of MemorizeRequestAllOf
+  * @throws IOException if the JSON string is invalid with respect to MemorizeRequestAllOf
   */
-  public static RecollectRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RecollectRequest.class);
+  public static MemorizeRequestAllOf fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MemorizeRequestAllOf.class);
   }
 
  /**
-  * Convert an instance of RecollectRequest to an JSON string
+  * Convert an instance of MemorizeRequestAllOf to an JSON string
   *
   * @return JSON string
   */

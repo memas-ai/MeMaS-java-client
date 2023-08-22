@@ -28,9 +28,9 @@ import java.io.IOException;
 
 
 import ai.memas.memasclient.model.CitedDocument;
-import ai.memas.memasclient.model.RecollectRequest;
-import ai.memas.memasclient.model.Remember200Response;
-import ai.memas.memasclient.model.RememberRequest;
+import ai.memas.memasclient.model.Memorize200Response;
+import ai.memas.memasclient.model.MemorizeRequest;
+import ai.memas.memasclient.model.RecallRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -77,18 +77,18 @@ public class DpApi {
     }
 
     /**
-     * Build call for recollect
-     * @param recollectRequest  (required)
+     * Build call for memorize
+     * @param memorizeRequest Request object for memorizing a document (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful Operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call recollectCall(RecollectRequest recollectRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call memorizeCall(MemorizeRequest memorizeRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -102,10 +102,10 @@ public class DpApi {
             basePath = null;
         }
 
-        Object localVarPostBody = recollectRequest;
+        Object localVarPostBody = memorizeRequest;
 
         // create path and map variables
-        String localVarPath = "/dp/recollect";
+        String localVarPath = "/dp/memorize";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -134,20 +134,143 @@ public class DpApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call recollectValidateBeforeCall(RecollectRequest recollectRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'recollectRequest' is set
-        if (recollectRequest == null) {
-            throw new ApiException("Missing the required parameter 'recollectRequest' when calling recollect(Async)");
+    private okhttp3.Call memorizeValidateBeforeCall(MemorizeRequest memorizeRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'memorizeRequest' is set
+        if (memorizeRequest == null) {
+            throw new ApiException("Missing the required parameter 'memorizeRequest' when calling memorize(Async)");
         }
 
-        return recollectCall(recollectRequest, _callback);
+        return memorizeCall(memorizeRequest, _callback);
 
     }
 
     /**
-     * Recollects
-     * 
-     * @param recollectRequest  (required)
+     * Memorize information
+     * Memorize information
+     * @param memorizeRequest Request object for memorizing a document (required)
+     * @return Memorize200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public Memorize200Response memorize(MemorizeRequest memorizeRequest) throws ApiException {
+        ApiResponse<Memorize200Response> localVarResp = memorizeWithHttpInfo(memorizeRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Memorize information
+     * Memorize information
+     * @param memorizeRequest Request object for memorizing a document (required)
+     * @return ApiResponse&lt;Memorize200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Memorize200Response> memorizeWithHttpInfo(MemorizeRequest memorizeRequest) throws ApiException {
+        okhttp3.Call localVarCall = memorizeValidateBeforeCall(memorizeRequest, null);
+        Type localVarReturnType = new TypeToken<Memorize200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Memorize information (asynchronously)
+     * Memorize information
+     * @param memorizeRequest Request object for memorizing a document (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call memorizeAsync(MemorizeRequest memorizeRequest, final ApiCallback<Memorize200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = memorizeValidateBeforeCall(memorizeRequest, _callback);
+        Type localVarReturnType = new TypeToken<Memorize200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for recall
+     * @param recallRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call recallCall(RecallRequest recallRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = recallRequest;
+
+        // create path and map variables
+        String localVarPath = "/dp/recall";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call recallValidateBeforeCall(RecallRequest recallRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'recallRequest' is set
+        if (recallRequest == null) {
+            throw new ApiException("Missing the required parameter 'recallRequest' when calling recall(Async)");
+        }
+
+        return recallCall(recallRequest, _callback);
+
+    }
+
+    /**
+     * Recalls information
+     * Recalls relevant information related to the given clue
+     * @param recallRequest  (required)
      * @return List&lt;CitedDocument&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -156,15 +279,15 @@ public class DpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<CitedDocument> recollect(RecollectRequest recollectRequest) throws ApiException {
-        ApiResponse<List<CitedDocument>> localVarResp = recollectWithHttpInfo(recollectRequest);
+    public List<CitedDocument> recall(RecallRequest recallRequest) throws ApiException {
+        ApiResponse<List<CitedDocument>> localVarResp = recallWithHttpInfo(recallRequest);
         return localVarResp.getData();
     }
 
     /**
-     * Recollects
-     * 
-     * @param recollectRequest  (required)
+     * Recalls information
+     * Recalls relevant information related to the given clue
+     * @param recallRequest  (required)
      * @return ApiResponse&lt;List&lt;CitedDocument&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -173,16 +296,16 @@ public class DpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<CitedDocument>> recollectWithHttpInfo(RecollectRequest recollectRequest) throws ApiException {
-        okhttp3.Call localVarCall = recollectValidateBeforeCall(recollectRequest, null);
+    public ApiResponse<List<CitedDocument>> recallWithHttpInfo(RecallRequest recallRequest) throws ApiException {
+        okhttp3.Call localVarCall = recallValidateBeforeCall(recallRequest, null);
         Type localVarReturnType = new TypeToken<List<CitedDocument>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Recollects (asynchronously)
-     * 
-     * @param recollectRequest  (required)
+     * Recalls information (asynchronously)
+     * Recalls relevant information related to the given clue
+     * @param recallRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -192,133 +315,10 @@ public class DpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call recollectAsync(RecollectRequest recollectRequest, final ApiCallback<List<CitedDocument>> _callback) throws ApiException {
+    public okhttp3.Call recallAsync(RecallRequest recallRequest, final ApiCallback<List<CitedDocument>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = recollectValidateBeforeCall(recollectRequest, _callback);
+        okhttp3.Call localVarCall = recallValidateBeforeCall(recallRequest, _callback);
         Type localVarReturnType = new TypeToken<List<CitedDocument>>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for remember
-     * @param rememberRequest Request object for remembering a document (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Operation </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call rememberCall(RememberRequest rememberRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = rememberRequest;
-
-        // create path and map variables
-        String localVarPath = "/dp/remember";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call rememberValidateBeforeCall(RememberRequest rememberRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'rememberRequest' is set
-        if (rememberRequest == null) {
-            throw new ApiException("Missing the required parameter 'rememberRequest' when calling remember(Async)");
-        }
-
-        return rememberCall(rememberRequest, _callback);
-
-    }
-
-    /**
-     * Memorize information
-     * Memorize information
-     * @param rememberRequest Request object for remembering a document (required)
-     * @return Remember200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Operation </td><td>  -  </td></tr>
-     </table>
-     */
-    public Remember200Response remember(RememberRequest rememberRequest) throws ApiException {
-        ApiResponse<Remember200Response> localVarResp = rememberWithHttpInfo(rememberRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Memorize information
-     * Memorize information
-     * @param rememberRequest Request object for remembering a document (required)
-     * @return ApiResponse&lt;Remember200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Operation </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Remember200Response> rememberWithHttpInfo(RememberRequest rememberRequest) throws ApiException {
-        okhttp3.Call localVarCall = rememberValidateBeforeCall(rememberRequest, null);
-        Type localVarReturnType = new TypeToken<Remember200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Memorize information (asynchronously)
-     * Memorize information
-     * @param rememberRequest Request object for remembering a document (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Operation </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call rememberAsync(RememberRequest rememberRequest, final ApiCallback<Remember200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = rememberValidateBeforeCall(rememberRequest, _callback);
-        Type localVarReturnType = new TypeToken<Remember200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

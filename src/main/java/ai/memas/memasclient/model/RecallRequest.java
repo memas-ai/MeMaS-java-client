@@ -15,7 +15,6 @@ package ai.memas.memasclient.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import ai.memas.memasclient.model.Citation;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -49,68 +48,43 @@ import java.util.Set;
 import ai.memas.memasclient.invoker.JSON;
 
 /**
- * RememberRequest
+ * RecallRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-20T02:18:29.780519497-07:00[America/Los_Angeles]")
-public class RememberRequest {
-  public static final String SERIALIZED_NAME_DOCUMENT = "document";
-  @SerializedName(SERIALIZED_NAME_DOCUMENT)
-  private String document;
-
-  public static final String SERIALIZED_NAME_CITATION = "citation";
-  @SerializedName(SERIALIZED_NAME_CITATION)
-  private Citation citation;
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-21T23:03:51.747088712-07:00[America/Los_Angeles]")
+public class RecallRequest {
+  public static final String SERIALIZED_NAME_CLUE = "clue";
+  @SerializedName(SERIALIZED_NAME_CLUE)
+  private String clue;
 
   public static final String SERIALIZED_NAME_CORPUS_PATHNAME = "corpus_pathname";
   @SerializedName(SERIALIZED_NAME_CORPUS_PATHNAME)
   private String corpusPathname;
 
-  public RememberRequest() {
+  public RecallRequest() {
   }
 
-  public RememberRequest document(String document) {
+  public RecallRequest clue(String clue) {
     
-    this.document = document;
+    this.clue = clue;
     return this;
   }
 
    /**
-   * Get document
-   * @return document
+   * Get clue
+   * @return clue
   **/
   @javax.annotation.Nonnull
-  public String getDocument() {
-    return document;
+  public String getClue() {
+    return clue;
   }
 
 
-  public void setDocument(String document) {
-    this.document = document;
+  public void setClue(String clue) {
+    this.clue = clue;
   }
 
 
-  public RememberRequest citation(Citation citation) {
-    
-    this.citation = citation;
-    return this;
-  }
-
-   /**
-   * Get citation
-   * @return citation
-  **/
-  @javax.annotation.Nonnull
-  public Citation getCitation() {
-    return citation;
-  }
-
-
-  public void setCitation(Citation citation) {
-    this.citation = citation;
-  }
-
-
-  public RememberRequest corpusPathname(String corpusPathname) {
+  public RecallRequest corpusPathname(String corpusPathname) {
     
     this.corpusPathname = corpusPathname;
     return this;
@@ -120,7 +94,7 @@ public class RememberRequest {
    * Full name of a corpus, specifying which namespace the corpus is under.  The name takes on the format of \\\&quot;&lt;namespace_pathname&gt;:&lt;corpus_name&gt;\\\&quot;
    * @return corpusPathname
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getCorpusPathname() {
     return corpusPathname;
   }
@@ -140,23 +114,21 @@ public class RememberRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RememberRequest rememberRequest = (RememberRequest) o;
-    return Objects.equals(this.document, rememberRequest.document) &&
-        Objects.equals(this.citation, rememberRequest.citation) &&
-        Objects.equals(this.corpusPathname, rememberRequest.corpusPathname);
+    RecallRequest recallRequest = (RecallRequest) o;
+    return Objects.equals(this.clue, recallRequest.clue) &&
+        Objects.equals(this.corpusPathname, recallRequest.corpusPathname);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(document, citation, corpusPathname);
+    return Objects.hash(clue, corpusPathname);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RememberRequest {\n");
-    sb.append("    document: ").append(toIndentedString(document)).append("\n");
-    sb.append("    citation: ").append(toIndentedString(citation)).append("\n");
+    sb.append("class RecallRequest {\n");
+    sb.append("    clue: ").append(toIndentedString(clue)).append("\n");
     sb.append("    corpusPathname: ").append(toIndentedString(corpusPathname)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -180,49 +152,46 @@ public class RememberRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("document");
-    openapiFields.add("citation");
+    openapiFields.add("clue");
     openapiFields.add("corpus_pathname");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("document");
-    openapiRequiredFields.add("citation");
+    openapiRequiredFields.add("clue");
+    openapiRequiredFields.add("corpus_pathname");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to RememberRequest
+  * @throws IOException if the JSON Object is invalid with respect to RecallRequest
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!RememberRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RememberRequest is not found in the empty JSON string", RememberRequest.openapiRequiredFields.toString()));
+        if (!RecallRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in RecallRequest is not found in the empty JSON string", RecallRequest.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!RememberRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RememberRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!RecallRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RecallRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RememberRequest.openapiRequiredFields) {
+      for (String requiredField : RecallRequest.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-      if (!jsonObj.get("document").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `document` to be a primitive type in the JSON string but got `%s`", jsonObj.get("document").toString()));
+      if (!jsonObj.get("clue").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `clue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("clue").toString()));
       }
-      // validate the required field `citation`
-      Citation.validateJsonObject(jsonObj.getAsJsonObject("citation"));
-      if ((jsonObj.get("corpus_pathname") != null && !jsonObj.get("corpus_pathname").isJsonNull()) && !jsonObj.get("corpus_pathname").isJsonPrimitive()) {
+      if (!jsonObj.get("corpus_pathname").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `corpus_pathname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("corpus_pathname").toString()));
       }
   }
@@ -231,22 +200,22 @@ public class RememberRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RememberRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RememberRequest' and its subtypes
+       if (!RecallRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'RecallRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RememberRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RememberRequest.class));
+       final TypeAdapter<RecallRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(RecallRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RememberRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<RecallRequest>() {
            @Override
-           public void write(JsonWriter out, RememberRequest value) throws IOException {
+           public void write(JsonWriter out, RecallRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public RememberRequest read(JsonReader in) throws IOException {
+           public RecallRequest read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -257,18 +226,18 @@ public class RememberRequest {
   }
 
  /**
-  * Create an instance of RememberRequest given an JSON string
+  * Create an instance of RecallRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of RememberRequest
-  * @throws IOException if the JSON string is invalid with respect to RememberRequest
+  * @return An instance of RecallRequest
+  * @throws IOException if the JSON string is invalid with respect to RecallRequest
   */
-  public static RememberRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RememberRequest.class);
+  public static RecallRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RecallRequest.class);
   }
 
  /**
-  * Convert an instance of RememberRequest to an JSON string
+  * Convert an instance of RecallRequest to an JSON string
   *
   * @return JSON string
   */

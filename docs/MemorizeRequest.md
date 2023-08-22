@@ -1,6 +1,6 @@
 
 
-# RememberRequest
+# MemorizeRequest
 
 
 ## Properties

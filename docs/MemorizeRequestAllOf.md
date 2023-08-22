@@ -1,6 +1,6 @@
 
 
-# RememberRequestAllOf
+# MemorizeRequestAllOf
 
 
 ## Properties

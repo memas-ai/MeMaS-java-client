@@ -50,7 +50,7 @@ import ai.memas.memasclient.invoker.JSON;
 /**
  * Citation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-20T02:18:29.780519497-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-21T23:03:51.747088712-07:00[America/Los_Angeles]")
 public class Citation {
   public static final String SERIALIZED_NAME_SOURCE_URI = "source_uri";
   @SerializedName(SERIALIZED_NAME_SOURCE_URI)

@@ -18,33 +18,33 @@ tags:
 - description: Data Plane APIs for Chatbots
   name: dp
 paths:
-  /dp/remember:
+  /dp/memorize:
     post:
       description: Memorize information
-      operationId: remember
+      operationId: memorize
       requestBody:
-        $ref: '#/components/requestBodies/RememberRequest'
+        $ref: '#/components/requestBodies/MemorizeRequest'
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/remember_200_response'
+                $ref: '#/components/schemas/memorize_200_response'
           description: Successful Operation
       summary: Memorize information
       tags:
       - dp
       x-content-type: application/json
       x-accepts: application/json
-  /dp/recollect:
+  /dp/recall:
     post:
-      description: ""
-      operationId: recollect
+      description: Recalls relevant information related to the given clue
+      operationId: recall
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/recollect_request'
+              $ref: '#/components/schemas/recall_request'
         required: true
       responses:
         "200":
@@ -55,26 +55,26 @@ paths:
                   $ref: '#/components/schemas/CitedDocument'
                 type: array
           description: successful operation
-      summary: Recollects
+      summary: Recalls information
       tags:
       - dp
       x-content-type: application/json
       x-accepts: application/json
 components:
   requestBodies:
-    RememberRequest:
+    MemorizeRequest:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/remember_request'
-      description: Request object for remembering a document
+            $ref: '#/components/schemas/memorize_request'
+      description: Request object for memorizing a document
       required: true
   responses:
     OperationSuccess:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/remember_200_response'
+            $ref: '#/components/schemas/memorize_200_response'
       description: Successful Operation
   schemas:
     Citation:
@@ -123,7 +123,7 @@ components:
         \""
       example: memas:wikipedia
       type: string
-    remember_request_allOf:
+    memorize_request_allOf:
       properties:
         corpus_pathname:
           description: "Full name of a corpus, specifying which namespace the corpus\
@@ -131,14 +131,14 @@ components:
             \""
           example: memas:wikipedia
           type: string
-    remember_request:
+    memorize_request:
       allOf:
       - $ref: '#/components/schemas/CitedDocument'
       - type: object
       - required:
         - corpus_pathname
-      - $ref: '#/components/schemas/remember_request_allOf'
-    remember_200_response:
+      - $ref: '#/components/schemas/memorize_request_allOf'
+    memorize_200_response:
       example:
         success: true
       properties:
@@ -146,7 +146,7 @@ components:
           example: true
           type: boolean
       type: object
-    recollect_request:
+    recall_request:
       properties:
         clue:
           example: What's the weather?

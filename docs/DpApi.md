@@ -4,17 +4,17 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**recollect**](DpApi.md#recollect) | **POST** /dp/recollect | Recollects |
-| [**remember**](DpApi.md#remember) | **POST** /dp/remember | Memorize information |
+| [**memorize**](DpApi.md#memorize) | **POST** /dp/memorize | Memorize information |
+| [**recall**](DpApi.md#recall) | **POST** /dp/recall | Recalls information |
 
 
-<a id="recollect"></a>
-# **recollect**
-> List&lt;CitedDocument&gt; recollect(recollectRequest)
+<a id="memorize"></a>
+# **memorize**
+> Memorize200Response memorize(memorizeRequest)
 
-Recollects
+Memorize information
 
-
+Memorize information
 
 ### Example
 ```java
@@ -31,12 +31,12 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     DpApi apiInstance = new DpApi(defaultClient);
-    RecollectRequest recollectRequest = new RecollectRequest(); // RecollectRequest | 
+    MemorizeRequest memorizeRequest = new MemorizeRequest(); // MemorizeRequest | Request object for memorizing a document
     try {
-      List<CitedDocument> result = apiInstance.recollect(recollectRequest);
+      Memorize200Response result = apiInstance.memorize(memorizeRequest);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DpApi#recollect");
+      System.err.println("Exception when calling DpApi#memorize");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -50,7 +50,69 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **recollectRequest** | [**RecollectRequest**](RecollectRequest.md)|  | |
+| **memorizeRequest** | [**MemorizeRequest**](MemorizeRequest.md)| Request object for memorizing a document | |
+
+### Return type
+
+[**Memorize200Response**](Memorize200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Operation |  -  |
+
+<a id="recall"></a>
+# **recall**
+> List&lt;CitedDocument&gt; recall(recallRequest)
+
+Recalls information
+
+Recalls relevant information related to the given clue
+
+### Example
+```java
+// Import classes:
+import ai.memas.memasclient.invoker.ApiClient;
+import ai.memas.memasclient.invoker.ApiException;
+import ai.memas.memasclient.invoker.Configuration;
+import ai.memas.memasclient.invoker.models.*;
+import ai.memas.memasclient.api.DpApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    DpApi apiInstance = new DpApi(defaultClient);
+    RecallRequest recallRequest = new RecallRequest(); // RecallRequest | 
+    try {
+      List<CitedDocument> result = apiInstance.recall(recallRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DpApi#recall");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **recallRequest** | [**RecallRequest**](RecallRequest.md)|  | |
 
 ### Return type
 
@@ -69,66 +131,4 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | successful operation |  -  |
-
-<a id="remember"></a>
-# **remember**
-> Remember200Response remember(rememberRequest)
-
-Memorize information
-
-Memorize information
-
-### Example
-```java
-// Import classes:
-import ai.memas.memasclient.invoker.ApiClient;
-import ai.memas.memasclient.invoker.ApiException;
-import ai.memas.memasclient.invoker.Configuration;
-import ai.memas.memasclient.invoker.models.*;
-import ai.memas.memasclient.api.DpApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-
-    DpApi apiInstance = new DpApi(defaultClient);
-    RememberRequest rememberRequest = new RememberRequest(); // RememberRequest | Request object for remembering a document
-    try {
-      Remember200Response result = apiInstance.remember(rememberRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DpApi#remember");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **rememberRequest** | [**RememberRequest**](RememberRequest.md)| Request object for remembering a document | |
-
-### Return type
-
-[**Remember200Response**](Remember200Response.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful Operation |  -  |
 

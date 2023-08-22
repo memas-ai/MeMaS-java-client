@@ -48,35 +48,35 @@ import java.util.Set;
 import ai.memas.memasclient.invoker.JSON;
 
 /**
- * RememberRequestAllOf
+ * Memorize200Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-20T02:18:29.780519497-07:00[America/Los_Angeles]")
-public class RememberRequestAllOf {
-  public static final String SERIALIZED_NAME_CORPUS_PATHNAME = "corpus_pathname";
-  @SerializedName(SERIALIZED_NAME_CORPUS_PATHNAME)
-  private String corpusPathname;
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-21T23:03:51.747088712-07:00[America/Los_Angeles]")
+public class Memorize200Response {
+  public static final String SERIALIZED_NAME_SUCCESS = "success";
+  @SerializedName(SERIALIZED_NAME_SUCCESS)
+  private Boolean success;
 
-  public RememberRequestAllOf() {
+  public Memorize200Response() {
   }
 
-  public RememberRequestAllOf corpusPathname(String corpusPathname) {
+  public Memorize200Response success(Boolean success) {
     
-    this.corpusPathname = corpusPathname;
+    this.success = success;
     return this;
   }
 
    /**
-   * Full name of a corpus, specifying which namespace the corpus is under.  The name takes on the format of \\\&quot;&lt;namespace_pathname&gt;:&lt;corpus_name&gt;\\\&quot;
-   * @return corpusPathname
+   * Get success
+   * @return success
   **/
   @javax.annotation.Nullable
-  public String getCorpusPathname() {
-    return corpusPathname;
+  public Boolean getSuccess() {
+    return success;
   }
 
 
-  public void setCorpusPathname(String corpusPathname) {
-    this.corpusPathname = corpusPathname;
+  public void setSuccess(Boolean success) {
+    this.success = success;
   }
 
 
@@ -89,20 +89,20 @@ public class RememberRequestAllOf {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RememberRequestAllOf rememberRequestAllOf = (RememberRequestAllOf) o;
-    return Objects.equals(this.corpusPathname, rememberRequestAllOf.corpusPathname);
+    Memorize200Response memorize200Response = (Memorize200Response) o;
+    return Objects.equals(this.success, memorize200Response.success);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(corpusPathname);
+    return Objects.hash(success);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RememberRequestAllOf {\n");
-    sb.append("    corpusPathname: ").append(toIndentedString(corpusPathname)).append("\n");
+    sb.append("class Memorize200Response {\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -125,7 +125,7 @@ public class RememberRequestAllOf {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("corpus_pathname");
+    openapiFields.add("success");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -135,24 +135,21 @@ public class RememberRequestAllOf {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to RememberRequestAllOf
+  * @throws IOException if the JSON Object is invalid with respect to Memorize200Response
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!RememberRequestAllOf.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RememberRequestAllOf is not found in the empty JSON string", RememberRequestAllOf.openapiRequiredFields.toString()));
+        if (!Memorize200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Memorize200Response is not found in the empty JSON string", Memorize200Response.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!RememberRequestAllOf.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RememberRequestAllOf` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!Memorize200Response.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Memorize200Response` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
-      }
-      if ((jsonObj.get("corpus_pathname") != null && !jsonObj.get("corpus_pathname").isJsonNull()) && !jsonObj.get("corpus_pathname").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `corpus_pathname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("corpus_pathname").toString()));
       }
   }
 
@@ -160,22 +157,22 @@ public class RememberRequestAllOf {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RememberRequestAllOf.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RememberRequestAllOf' and its subtypes
+       if (!Memorize200Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'Memorize200Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RememberRequestAllOf> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RememberRequestAllOf.class));
+       final TypeAdapter<Memorize200Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(Memorize200Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RememberRequestAllOf>() {
+       return (TypeAdapter<T>) new TypeAdapter<Memorize200Response>() {
            @Override
-           public void write(JsonWriter out, RememberRequestAllOf value) throws IOException {
+           public void write(JsonWriter out, Memorize200Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public RememberRequestAllOf read(JsonReader in) throws IOException {
+           public Memorize200Response read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -186,18 +183,18 @@ public class RememberRequestAllOf {
   }
 
  /**
-  * Create an instance of RememberRequestAllOf given an JSON string
+  * Create an instance of Memorize200Response given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of RememberRequestAllOf
-  * @throws IOException if the JSON string is invalid with respect to RememberRequestAllOf
+  * @return An instance of Memorize200Response
+  * @throws IOException if the JSON string is invalid with respect to Memorize200Response
   */
-  public static RememberRequestAllOf fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RememberRequestAllOf.class);
+  public static Memorize200Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Memorize200Response.class);
   }
 
  /**
-  * Convert an instance of RememberRequestAllOf to an JSON string
+  * Convert an instance of Memorize200Response to an JSON string
   *
   * @return JSON string
   */

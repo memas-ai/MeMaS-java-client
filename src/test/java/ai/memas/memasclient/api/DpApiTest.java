@@ -15,9 +15,9 @@ package ai.memas.memasclient.api;
 
 import ai.memas.memasclient.invoker.ApiException;
 import ai.memas.memasclient.model.CitedDocument;
-import ai.memas.memasclient.model.RecollectRequest;
-import ai.memas.memasclient.model.Remember200Response;
-import ai.memas.memasclient.model.RememberRequest;
+import ai.memas.memasclient.model.Memorize200Response;
+import ai.memas.memasclient.model.MemorizeRequest;
+import ai.memas.memasclient.model.RecallRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -35,30 +35,30 @@ public class DpApiTest {
     private final DpApi api = new DpApi();
 
     /**
-     * Recollects
+     * Memorize information
      *
-     * 
+     * Memorize information
      *
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void recollectTest() throws ApiException {
-        RecollectRequest recollectRequest = null;
-        List<CitedDocument> response = api.recollect(recollectRequest);
+    public void memorizeTest() throws ApiException {
+        MemorizeRequest memorizeRequest = null;
+        Memorize200Response response = api.memorize(memorizeRequest);
         // TODO: test validations
     }
 
     /**
-     * Memorize information
+     * Recalls information
      *
-     * Memorize information
+     * Recalls relevant information related to the given clue
      *
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void rememberTest() throws ApiException {
-        RememberRequest rememberRequest = null;
-        Remember200Response response = api.remember(rememberRequest);
+    public void recallTest() throws ApiException {
+        RecallRequest recallRequest = null;
+        List<CitedDocument> response = api.recall(recallRequest);
         // TODO: test validations
     }
 

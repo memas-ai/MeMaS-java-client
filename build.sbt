@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "ai.memas",
     name := "memas-client",
-    version := "0.1.1",
+    version := "0.1.2",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),

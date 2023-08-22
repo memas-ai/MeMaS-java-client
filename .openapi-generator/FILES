@@ -8,10 +8,10 @@ build.sbt
 docs/Citation.md
 docs/CitedDocument.md
 docs/DpApi.md
-docs/RecollectRequest.md
-docs/Remember200Response.md
-docs/RememberRequest.md
-docs/RememberRequestAllOf.md
+docs/Memorize200Response.md
+docs/MemorizeRequest.md
+docs/MemorizeRequestAllOf.md
+docs/RecallRequest.md
 git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
@@ -42,7 +42,8 @@ src/main/java/ai/memas/memasclient/invoker/auth/HttpBearerAuth.java
 src/main/java/ai/memas/memasclient/model/AbstractOpenApiSchema.java
 src/main/java/ai/memas/memasclient/model/Citation.java
 src/main/java/ai/memas/memasclient/model/CitedDocument.java
-src/main/java/ai/memas/memasclient/model/RecollectRequest.java
-src/main/java/ai/memas/memasclient/model/Remember200Response.java
-src/main/java/ai/memas/memasclient/model/RememberRequest.java
-src/main/java/ai/memas/memasclient/model/RememberRequestAllOf.java
+src/main/java/ai/memas/memasclient/model/Memorize200Response.java
+src/main/java/ai/memas/memasclient/model/MemorizeRequest.java
+src/main/java/ai/memas/memasclient/model/MemorizeRequestAllOf.java
+src/main/java/ai/memas/memasclient/model/RecallRequest.java
+src/test/java/ai/memas/memasclient/api/DpApiTest.java

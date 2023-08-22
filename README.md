@@ -2,7 +2,7 @@
 
 MeMaS DP APIs
 - API version: 0.1.0
-  - Build date: 2023-08-20T02:18:29.780519497-07:00[America/Los_Angeles]
+  - Build date: 2023-08-21T23:03:51.747088712-07:00[America/Los_Angeles]
 
 This is the Data Plane client for MeMaS (Memory Management Service). 
 See https://github.com/memas-ai/MeMaS for more details.
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>ai.memas</groupId>
   <artifactId>memas-client</artifactId>
-  <version>0.1.1</version>
+  <version>0.1.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "ai.memas:memas-client:0.1.1"
+     implementation "ai.memas:memas-client:0.1.2"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/memas-client-0.1.1.jar`
+* `target/memas-client-0.1.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -93,12 +93,12 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     DpApi apiInstance = new DpApi(defaultClient);
-    RecollectRequest recollectRequest = new RecollectRequest(); // RecollectRequest | 
+    MemorizeRequest memorizeRequest = new MemorizeRequest(); // MemorizeRequest | Request object for memorizing a document
     try {
-      List<CitedDocument> result = apiInstance.recollect(recollectRequest);
+      Memorize200Response result = apiInstance.memorize(memorizeRequest);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DpApi#recollect");
+      System.err.println("Exception when calling DpApi#memorize");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -115,18 +115,18 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DpApi* | [**recollect**](docs/DpApi.md#recollect) | **POST** /dp/recollect | Recollects
-*DpApi* | [**remember**](docs/DpApi.md#remember) | **POST** /dp/remember | Memorize information
+*DpApi* | [**memorize**](docs/DpApi.md#memorize) | **POST** /dp/memorize | Memorize information
+*DpApi* | [**recall**](docs/DpApi.md#recall) | **POST** /dp/recall | Recalls information
 
 
 ## Documentation for Models
 
  - [Citation](docs/Citation.md)
  - [CitedDocument](docs/CitedDocument.md)
- - [RecollectRequest](docs/RecollectRequest.md)
- - [Remember200Response](docs/Remember200Response.md)
- - [RememberRequest](docs/RememberRequest.md)
- - [RememberRequestAllOf](docs/RememberRequestAllOf.md)
+ - [Memorize200Response](docs/Memorize200Response.md)
+ - [MemorizeRequest](docs/MemorizeRequest.md)
+ - [MemorizeRequestAllOf](docs/MemorizeRequestAllOf.md)
+ - [RecallRequest](docs/RecallRequest.md)
 
 
 <a id="documentation-for-authorization"></a>

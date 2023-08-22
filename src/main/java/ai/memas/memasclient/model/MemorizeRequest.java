@@ -49,10 +49,10 @@ import java.util.Set;
 import ai.memas.memasclient.invoker.JSON;
 
 /**
- * CitedDocument
+ * MemorizeRequest
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-21T23:03:51.747088712-07:00[America/Los_Angeles]")
-public class CitedDocument {
+public class MemorizeRequest {
   public static final String SERIALIZED_NAME_DOCUMENT = "document";
   @SerializedName(SERIALIZED_NAME_DOCUMENT)
   private String document;
@@ -61,10 +61,14 @@ public class CitedDocument {
   @SerializedName(SERIALIZED_NAME_CITATION)
   private Citation citation;
 
-  public CitedDocument() {
+  public static final String SERIALIZED_NAME_CORPUS_PATHNAME = "corpus_pathname";
+  @SerializedName(SERIALIZED_NAME_CORPUS_PATHNAME)
+  private String corpusPathname;
+
+  public MemorizeRequest() {
   }
 
-  public CitedDocument document(String document) {
+  public MemorizeRequest document(String document) {
     
     this.document = document;
     return this;
@@ -85,7 +89,7 @@ public class CitedDocument {
   }
 
 
-  public CitedDocument citation(Citation citation) {
+  public MemorizeRequest citation(Citation citation) {
     
     this.citation = citation;
     return this;
@@ -106,6 +110,27 @@ public class CitedDocument {
   }
 
 
+  public MemorizeRequest corpusPathname(String corpusPathname) {
+    
+    this.corpusPathname = corpusPathname;
+    return this;
+  }
+
+   /**
+   * Full name of a corpus, specifying which namespace the corpus is under.  The name takes on the format of \\\&quot;&lt;namespace_pathname&gt;:&lt;corpus_name&gt;\\\&quot;
+   * @return corpusPathname
+  **/
+  @javax.annotation.Nullable
+  public String getCorpusPathname() {
+    return corpusPathname;
+  }
+
+
+  public void setCorpusPathname(String corpusPathname) {
+    this.corpusPathname = corpusPathname;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -115,22 +140,24 @@ public class CitedDocument {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CitedDocument citedDocument = (CitedDocument) o;
-    return Objects.equals(this.document, citedDocument.document) &&
-        Objects.equals(this.citation, citedDocument.citation);
+    MemorizeRequest memorizeRequest = (MemorizeRequest) o;
+    return Objects.equals(this.document, memorizeRequest.document) &&
+        Objects.equals(this.citation, memorizeRequest.citation) &&
+        Objects.equals(this.corpusPathname, memorizeRequest.corpusPathname);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(document, citation);
+    return Objects.hash(document, citation, corpusPathname);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CitedDocument {\n");
+    sb.append("class MemorizeRequest {\n");
     sb.append("    document: ").append(toIndentedString(document)).append("\n");
     sb.append("    citation: ").append(toIndentedString(citation)).append("\n");
+    sb.append("    corpusPathname: ").append(toIndentedString(corpusPathname)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -155,6 +182,7 @@ public class CitedDocument {
     openapiFields = new HashSet<String>();
     openapiFields.add("document");
     openapiFields.add("citation");
+    openapiFields.add("corpus_pathname");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -166,25 +194,25 @@ public class CitedDocument {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CitedDocument
+  * @throws IOException if the JSON Object is invalid with respect to MemorizeRequest
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!CitedDocument.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CitedDocument is not found in the empty JSON string", CitedDocument.openapiRequiredFields.toString()));
+        if (!MemorizeRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in MemorizeRequest is not found in the empty JSON string", MemorizeRequest.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!CitedDocument.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CitedDocument` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!MemorizeRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MemorizeRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CitedDocument.openapiRequiredFields) {
+      for (String requiredField : MemorizeRequest.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
@@ -194,28 +222,31 @@ public class CitedDocument {
       }
       // validate the required field `citation`
       Citation.validateJsonObject(jsonObj.getAsJsonObject("citation"));
+      if ((jsonObj.get("corpus_pathname") != null && !jsonObj.get("corpus_pathname").isJsonNull()) && !jsonObj.get("corpus_pathname").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `corpus_pathname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("corpus_pathname").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CitedDocument.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CitedDocument' and its subtypes
+       if (!MemorizeRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MemorizeRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CitedDocument> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CitedDocument.class));
+       final TypeAdapter<MemorizeRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MemorizeRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CitedDocument>() {
+       return (TypeAdapter<T>) new TypeAdapter<MemorizeRequest>() {
            @Override
-           public void write(JsonWriter out, CitedDocument value) throws IOException {
+           public void write(JsonWriter out, MemorizeRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public CitedDocument read(JsonReader in) throws IOException {
+           public MemorizeRequest read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -226,18 +257,18 @@ public class CitedDocument {
   }
 
  /**
-  * Create an instance of CitedDocument given an JSON string
+  * Create an instance of MemorizeRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CitedDocument
-  * @throws IOException if the JSON string is invalid with respect to CitedDocument
+  * @return An instance of MemorizeRequest
+  * @throws IOException if the JSON string is invalid with respect to MemorizeRequest
   */
-  public static CitedDocument fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CitedDocument.class);
+  public static MemorizeRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MemorizeRequest.class);
   }
 
  /**
-  * Convert an instance of CitedDocument to an JSON string
+  * Convert an instance of MemorizeRequest to an JSON string
   *
   * @return JSON string
   */

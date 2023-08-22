@@ -1,6 +1,6 @@
 /*
  * MeMaS DP APIs
- * This is the Data Plane APIs for MeMaS (Memory Management Service).
+ * This is the Data Plane client for MeMaS (Memory Management Service).  See https://github.com/memas-ai/MeMaS for more details.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: max.yu@memas.ai
@@ -24,25 +24,25 @@ import org.junit.jupiter.api.Test;
 
 
 /**
- * Model tests for RememberRequestAllOf
+ * Model tests for Memorize200Response
  */
-public class RememberRequestAllOfTest {
-    private final RememberRequestAllOf model = new RememberRequestAllOf();
+public class Memorize200ResponseTest {
+    private final Memorize200Response model = new Memorize200Response();
 
     /**
-     * Model tests for RememberRequestAllOf
+     * Model tests for Memorize200Response
      */
     @Test
-    public void testRememberRequestAllOf() {
-        // TODO: test RememberRequestAllOf
+    public void testMemorize200Response() {
+        // TODO: test Memorize200Response
     }
 
     /**
-     * Test the property 'corpusPathname'
+     * Test the property 'success'
      */
     @Test
-    public void corpusPathnameTest() {
-        // TODO: test corpusPathname
+    public void successTest() {
+        // TODO: test success
     }
 
 }
