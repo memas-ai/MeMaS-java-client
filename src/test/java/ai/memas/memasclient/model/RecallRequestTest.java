@@ -46,11 +46,11 @@ public class RecallRequestTest {
     }
 
     /**
-     * Test the property 'corpusPathname'
+     * Test the property 'namespacePathname'
      */
     @Test
-    public void corpusPathnameTest() {
-        // TODO: test corpusPathname
+    public void namespacePathnameTest() {
+        // TODO: test namespacePathname
     }
 
 }

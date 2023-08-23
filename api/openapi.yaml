@@ -123,6 +123,12 @@ components:
         \""
       example: memas:wikipedia
       type: string
+    NamespacePathname:
+      description: |-
+        Full namespace name, where child namespaces are appended after their parents'
+        names with '.'
+      example: memas.chatbot.persona1
+      type: string
     memorize_request_allOf:
       properties:
         corpus_pathname:
@@ -151,14 +157,14 @@ components:
         clue:
           example: What's the weather?
           type: string
-        corpus_pathname:
-          description: "Full name of a corpus, specifying which namespace the corpus\
-            \ is under. \nThe name takes on the format of \\\"<namespace_pathname>:<corpus_name>\\\
-            \""
-          example: memas:wikipedia
+        namespace_pathname:
+          description: |-
+            Full namespace name, where child namespaces are appended after their parents'
+            names with '.'
+          example: memas.chatbot.persona1
           type: string
       required:
       - clue
-      - corpus_pathname
+      - namespace_pathname
       type: object
 

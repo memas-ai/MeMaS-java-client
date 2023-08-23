@@ -50,15 +50,15 @@ import ai.memas.memasclient.invoker.JSON;
 /**
  * RecallRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-21T23:03:51.747088712-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-23T01:17:47.243967355-07:00[America/Los_Angeles]")
 public class RecallRequest {
   public static final String SERIALIZED_NAME_CLUE = "clue";
   @SerializedName(SERIALIZED_NAME_CLUE)
   private String clue;
 
-  public static final String SERIALIZED_NAME_CORPUS_PATHNAME = "corpus_pathname";
-  @SerializedName(SERIALIZED_NAME_CORPUS_PATHNAME)
-  private String corpusPathname;
+  public static final String SERIALIZED_NAME_NAMESPACE_PATHNAME = "namespace_pathname";
+  @SerializedName(SERIALIZED_NAME_NAMESPACE_PATHNAME)
+  private String namespacePathname;
 
   public RecallRequest() {
   }
@@ -84,24 +84,24 @@ public class RecallRequest {
   }
 
 
-  public RecallRequest corpusPathname(String corpusPathname) {
+  public RecallRequest namespacePathname(String namespacePathname) {
     
-    this.corpusPathname = corpusPathname;
+    this.namespacePathname = namespacePathname;
     return this;
   }
 
    /**
-   * Full name of a corpus, specifying which namespace the corpus is under.  The name takes on the format of \\\&quot;&lt;namespace_pathname&gt;:&lt;corpus_name&gt;\\\&quot;
-   * @return corpusPathname
+   * Full namespace name, where child namespaces are appended after their parents&#39; names with &#39;.&#39;
+   * @return namespacePathname
   **/
   @javax.annotation.Nonnull
-  public String getCorpusPathname() {
-    return corpusPathname;
+  public String getNamespacePathname() {
+    return namespacePathname;
   }
 
 
-  public void setCorpusPathname(String corpusPathname) {
-    this.corpusPathname = corpusPathname;
+  public void setNamespacePathname(String namespacePathname) {
+    this.namespacePathname = namespacePathname;
   }
 
 
@@ -116,12 +116,12 @@ public class RecallRequest {
     }
     RecallRequest recallRequest = (RecallRequest) o;
     return Objects.equals(this.clue, recallRequest.clue) &&
-        Objects.equals(this.corpusPathname, recallRequest.corpusPathname);
+        Objects.equals(this.namespacePathname, recallRequest.namespacePathname);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clue, corpusPathname);
+    return Objects.hash(clue, namespacePathname);
   }
 
   @Override
@@ -129,7 +129,7 @@ public class RecallRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RecallRequest {\n");
     sb.append("    clue: ").append(toIndentedString(clue)).append("\n");
-    sb.append("    corpusPathname: ").append(toIndentedString(corpusPathname)).append("\n");
+    sb.append("    namespacePathname: ").append(toIndentedString(namespacePathname)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -153,12 +153,12 @@ public class RecallRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("clue");
-    openapiFields.add("corpus_pathname");
+    openapiFields.add("namespace_pathname");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("clue");
-    openapiRequiredFields.add("corpus_pathname");
+    openapiRequiredFields.add("namespace_pathname");
   }
 
  /**
@@ -191,8 +191,8 @@ public class RecallRequest {
       if (!jsonObj.get("clue").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `clue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("clue").toString()));
       }
-      if (!jsonObj.get("corpus_pathname").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `corpus_pathname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("corpus_pathname").toString()));
+      if (!jsonObj.get("namespace_pathname").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `namespace_pathname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace_pathname").toString()));
       }
   }
 

@@ -13,9 +13,9 @@
 
 package ai.memas.memasclient.invoker;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-21T23:03:51.747088712-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-23T01:17:47.243967355-07:00[America/Los_Angeles]")
 public class Configuration {
-    public static final String VERSION = "0.1.2";
+    public static final String VERSION = "0.1.3";
 
     private static ApiClient defaultApiClient = new ApiClient();
 

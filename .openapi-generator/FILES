@@ -46,4 +46,3 @@ src/main/java/ai/memas/memasclient/model/Memorize200Response.java
 src/main/java/ai/memas/memasclient/model/MemorizeRequest.java
 src/main/java/ai/memas/memasclient/model/MemorizeRequestAllOf.java
 src/main/java/ai/memas/memasclient/model/RecallRequest.java
-src/test/java/ai/memas/memasclient/api/DpApiTest.java
