@@ -9,8 +9,11 @@ docs/Citation.md
 docs/CitedDocument.md
 docs/DpApi.md
 docs/Memorize200Response.md
+docs/Memorize400Response.md
 docs/MemorizeRequest.md
 docs/MemorizeRequestAllOf.md
+docs/NamespaceDoesNotExistError.md
+docs/NamespaceIllegalNameError.md
 docs/RecallRequest.md
 git_push.sh
 gradle.properties
@@ -43,6 +46,9 @@ src/main/java/ai/memas/memasclient/model/AbstractOpenApiSchema.java
 src/main/java/ai/memas/memasclient/model/Citation.java
 src/main/java/ai/memas/memasclient/model/CitedDocument.java
 src/main/java/ai/memas/memasclient/model/Memorize200Response.java
+src/main/java/ai/memas/memasclient/model/Memorize400Response.java
 src/main/java/ai/memas/memasclient/model/MemorizeRequest.java
 src/main/java/ai/memas/memasclient/model/MemorizeRequestAllOf.java
+src/main/java/ai/memas/memasclient/model/NamespaceDoesNotExistError.java
+src/main/java/ai/memas/memasclient/model/NamespaceIllegalNameError.java
 src/main/java/ai/memas/memasclient/model/RecallRequest.java

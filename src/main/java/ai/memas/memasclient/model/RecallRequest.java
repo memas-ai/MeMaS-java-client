@@ -50,7 +50,7 @@ import ai.memas.memasclient.invoker.JSON;
 /**
  * RecallRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-23T01:17:47.243967355-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-09-14T00:12:57.878084868-07:00[America/Los_Angeles]")
 public class RecallRequest {
   public static final String SERIALIZED_NAME_CLUE = "clue";
   @SerializedName(SERIALIZED_NAME_CLUE)

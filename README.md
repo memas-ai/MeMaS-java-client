@@ -2,7 +2,7 @@
 
 MeMaS DP APIs
 - API version: 0.1.0
-  - Build date: 2023-08-23T01:17:47.243967355-07:00[America/Los_Angeles]
+  - Build date: 2023-09-14T00:12:57.878084868-07:00[America/Los_Angeles]
 
 This is the Data Plane client for MeMaS (Memory Management Service). 
 See https://github.com/memas-ai/MeMaS for more details.
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>ai.memas</groupId>
   <artifactId>memas-client</artifactId>
-  <version>0.1.3</version>
+  <version>0.1.4</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "ai.memas:memas-client:0.1.3"
+     implementation "ai.memas:memas-client:0.1.4"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/memas-client-0.1.3.jar`
+* `target/memas-client-0.1.4.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -124,8 +124,11 @@ Class | Method | HTTP request | Description
  - [Citation](docs/Citation.md)
  - [CitedDocument](docs/CitedDocument.md)
  - [Memorize200Response](docs/Memorize200Response.md)
+ - [Memorize400Response](docs/Memorize400Response.md)
  - [MemorizeRequest](docs/MemorizeRequest.md)
  - [MemorizeRequestAllOf](docs/MemorizeRequestAllOf.md)
+ - [NamespaceDoesNotExistError](docs/NamespaceDoesNotExistError.md)
+ - [NamespaceIllegalNameError](docs/NamespaceIllegalNameError.md)
  - [RecallRequest](docs/RecallRequest.md)
 
 

@@ -31,6 +31,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/memorize_200_response'
           description: Successful Operation
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/memorize_400_response'
+          description: Failed operation
       summary: Memorize information
       tags:
       - dp
@@ -55,6 +61,12 @@ paths:
                   $ref: '#/components/schemas/CitedDocument'
                 type: array
           description: successful operation
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/memorize_400_response'
+          description: Failed operation
       summary: Recalls information
       tags:
       - dp
@@ -129,6 +141,40 @@ components:
         names with '.'
       example: memas.chatbot.persona1
       type: string
+    NamespaceDoesNotExistError:
+      description: Error returned when the namespace object (corpus/user) does not
+        exist
+      properties:
+        error_code:
+          enum:
+          - namespace_does_not_exist
+          type: string
+        msg:
+          example: "\"memas:wikipedia\" does not exists, you need to create the resource\
+            \ first"
+          type: string
+        details:
+          type: string
+      required:
+      - error_code
+      - msg
+      type: object
+    NamespaceIllegalNameError:
+      description: Error returned when the namespace name format/style is not allowed
+      properties:
+        error_code:
+          enum:
+          - namespace_illegal_name
+          type: string
+        msg:
+          example: '"memas!wikipedia" is not a valid pathname'
+          type: string
+        details:
+          type: string
+      required:
+      - error_code
+      - msg
+      type: object
     memorize_request_allOf:
       properties:
         corpus_pathname:
@@ -152,6 +198,10 @@ components:
           example: true
           type: boolean
       type: object
+    memorize_400_response:
+      oneOf:
+      - $ref: '#/components/schemas/NamespaceDoesNotExistError'
+      - $ref: '#/components/schemas/NamespaceIllegalNameError'
     recall_request:
       properties:
         clue:

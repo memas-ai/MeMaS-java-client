@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import ai.memas.memasclient.model.CitedDocument;
 import ai.memas.memasclient.model.Memorize200Response;
+import ai.memas.memasclient.model.Memorize400Response;
 import ai.memas.memasclient.model.MemorizeRequest;
 import ai.memas.memasclient.model.RecallRequest;
 
@@ -86,6 +87,7 @@ public class DpApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Failed operation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call memorizeCall(MemorizeRequest memorizeRequest, final ApiCallback _callback) throws ApiException {
@@ -154,6 +156,7 @@ public class DpApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Failed operation </td><td>  -  </td></tr>
      </table>
      */
     public Memorize200Response memorize(MemorizeRequest memorizeRequest) throws ApiException {
@@ -171,6 +174,7 @@ public class DpApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Failed operation </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Memorize200Response> memorizeWithHttpInfo(MemorizeRequest memorizeRequest) throws ApiException {
@@ -190,6 +194,7 @@ public class DpApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Failed operation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call memorizeAsync(MemorizeRequest memorizeRequest, final ApiCallback<Memorize200Response> _callback) throws ApiException {
@@ -209,6 +214,7 @@ public class DpApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Failed operation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call recallCall(RecallRequest recallRequest, final ApiCallback _callback) throws ApiException {
@@ -277,6 +283,7 @@ public class DpApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Failed operation </td><td>  -  </td></tr>
      </table>
      */
     public List<CitedDocument> recall(RecallRequest recallRequest) throws ApiException {
@@ -294,6 +301,7 @@ public class DpApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Failed operation </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<CitedDocument>> recallWithHttpInfo(RecallRequest recallRequest) throws ApiException {
@@ -313,6 +321,7 @@ public class DpApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Failed operation </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call recallAsync(RecallRequest recallRequest, final ApiCallback<List<CitedDocument>> _callback) throws ApiException {
