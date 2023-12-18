@@ -5,7 +5,7 @@
     <artifactId>memas-client</artifactId>
     <packaging>jar</packaging>
     <name>memas-client</name>
-    <version>0.1.4</version>
+    <version>0.1.5</version>
     <url>https://github.com/memas-ai/MeMaS-java-client</url>
     <description>OpenAPI Java</description>
     <scm>

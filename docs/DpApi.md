@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**memorize**](DpApi.md#memorize) | **POST** /dp/memorize | Memorize information |
-| [**recall**](DpApi.md#recall) | **POST** /dp/recall | Recalls information |
+| [**recall**](DpApi.md#recall) | **GET** /dp/recall | Recalls information |
 
 
 <a id="memorize"></a>
@@ -31,7 +31,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     DpApi apiInstance = new DpApi(defaultClient);
-    MemorizeRequest memorizeRequest = new MemorizeRequest(); // MemorizeRequest | Request object for memorizing a document
+    MemorizeRequest memorizeRequest = new MemorizeRequest(); // MemorizeRequest | 
     try {
       Memorize200Response result = apiInstance.memorize(memorizeRequest);
       System.out.println(result);
@@ -50,7 +50,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **memorizeRequest** | [**MemorizeRequest**](MemorizeRequest.md)| Request object for memorizing a document | |
+| **memorizeRequest** | [**MemorizeRequest**](MemorizeRequest.md)|  | |
 
 ### Return type
 

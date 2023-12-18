@@ -8,7 +8,7 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   title: MeMaS DP APIs
-  version: 0.1.0
+  version: 0.1.1
 externalDocs:
   description: Find out more about MeMaS
   url: http://memas.ai
@@ -23,7 +23,11 @@ paths:
       description: Memorize information
       operationId: memorize
       requestBody:
-        $ref: '#/components/requestBodies/MemorizeRequest'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/memorize_request'
+        required: true
       responses:
         "200":
           content:
@@ -43,7 +47,7 @@ paths:
       x-content-type: application/json
       x-accepts: application/json
   /dp/recall:
-    post:
+    get:
       description: Recalls relevant information related to the given clue
       operationId: recall
       requestBody:
@@ -73,14 +77,6 @@ paths:
       x-content-type: application/json
       x-accepts: application/json
 components:
-  requestBodies:
-    MemorizeRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/memorize_request'
-      description: Request object for memorizing a document
-      required: true
   responses:
     OperationSuccess:
       content:

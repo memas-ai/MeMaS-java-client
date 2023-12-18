@@ -1,8 +1,8 @@
 # memas-client
 
 MeMaS DP APIs
-- API version: 0.1.0
-  - Build date: 2023-09-14T00:12:57.878084868-07:00[America/Los_Angeles]
+- API version: 0.1.1
+  - Build date: 2023-12-17T16:04:35.398509042-08:00[America/Los_Angeles]
 
 This is the Data Plane client for MeMaS (Memory Management Service). 
 See https://github.com/memas-ai/MeMaS for more details.
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>ai.memas</groupId>
   <artifactId>memas-client</artifactId>
-  <version>0.1.4</version>
+  <version>0.1.5</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "ai.memas:memas-client:0.1.4"
+     implementation "ai.memas:memas-client:0.1.5"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/memas-client-0.1.4.jar`
+* `target/memas-client-0.1.5.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -93,7 +93,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     DpApi apiInstance = new DpApi(defaultClient);
-    MemorizeRequest memorizeRequest = new MemorizeRequest(); // MemorizeRequest | Request object for memorizing a document
+    MemorizeRequest memorizeRequest = new MemorizeRequest(); // MemorizeRequest | 
     try {
       Memorize200Response result = apiInstance.memorize(memorizeRequest);
       System.out.println(result);
@@ -116,7 +116,7 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DpApi* | [**memorize**](docs/DpApi.md#memorize) | **POST** /dp/memorize | Memorize information
-*DpApi* | [**recall**](docs/DpApi.md#recall) | **POST** /dp/recall | Recalls information
+*DpApi* | [**recall**](docs/DpApi.md#recall) | **GET** /dp/recall | Recalls information
 
 
 ## Documentation for Models
